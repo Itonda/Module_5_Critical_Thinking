@@ -31,8 +31,15 @@ public class WeeklyTemps {
         for (double temp : avgTemps) {
             totalTemps += temp;
         }
-
         return totalTemps / avgTemps.size();
+
+    }
+    // Added method to print all average temps per day
+    public void getAllAvgTemps() {
+        System.out.println();
+        for (int i = 0; i < days.size(); i++) {
+            System.out.printf("%s: %.2f°C\n", days.get(i), avgTemps.get(i));
+        }
     }
     // Method for getting the average temperature for a day
     public double getAvgDayTemp(String day) {

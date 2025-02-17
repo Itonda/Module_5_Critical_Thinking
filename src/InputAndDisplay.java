@@ -12,9 +12,11 @@ public class InputAndDisplay {
         System.out.print("Enter day of the week to display average temperature for that day or type 'Week' to \n" +
                 "display average temperature for the week: ");
         String dayInput = scnr.nextLine();
-
+        //Added weeklyTemps.getAllAvgTemps() to print average temps for each weekday
         if (dayInput.equals("Week")) {
+            weeklyTemps.getAllAvgTemps();
             System.out.printf("\nWeekly average temperature: %.2f°C\n", weeklyTemps.weeklyAverage());
+
         } else {
             double avgDayTemp = weeklyTemps.getAvgDayTemp(dayInput);
             System.out.printf("\n%s's average temperature is: %.2f°C\n", dayInput, avgDayTemp);
