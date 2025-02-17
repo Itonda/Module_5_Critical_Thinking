@@ -4,7 +4,7 @@ import java.util.ArrayList;
 // Class with an ArrayList for days and an Arraylist for Temps as attributes
 public class WeeklyTemps {
     private ArrayList<String> days = new ArrayList<>();
-    private ArrayList<Double> temps = new ArrayList<>();
+    private ArrayList<Double> avgTemps = new ArrayList<>();
 
     /* Adding days of the week to ArrayList 'days' and temperatures to ArrayList 'temps.'
     Indexes align days to temps */
@@ -17,26 +17,26 @@ public class WeeklyTemps {
         days.add("Saturday");
         days.add("Sunday");
 
-        temps.add(23.7);
-        temps.add(21.3);
-        temps.add(21.9);
-        temps.add(22.1);
-        temps.add(22.6);
-        temps.add(22.2);
-        temps.add(21.4);
+        avgTemps.add(23.7);
+        avgTemps.add(21.3);
+        avgTemps.add(21.9);
+        avgTemps.add(22.1);
+        avgTemps.add(22.6);
+        avgTemps.add(22.2);
+        avgTemps.add(21.4);
     }
     // Method for calculating average temperatures for the week
     public double weeklyAverage() {
         double totalTemps = 0;
-        for (double temp : temps) {
+        for (double temp : avgTemps) {
             totalTemps += temp;
         }
 
-        return totalTemps / temps.size();
+        return totalTemps / avgTemps.size();
     }
     // Method for getting the average temperature for a day
-    public double getDayTemp(String day) {
+    public double getAvgDayTemp(String day) {
         int daysIndex = days.indexOf(day);
-        return temps.get(daysIndex);
+        return avgTemps.get(daysIndex);
     }
 }
