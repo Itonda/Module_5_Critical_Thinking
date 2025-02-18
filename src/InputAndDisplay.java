@@ -8,20 +8,27 @@ public class InputAndDisplay {
 
         // Initialize instance of WeeklyTemps class (two ArrayLists for days and temps)
         WeeklyTemps weeklyTemps = new WeeklyTemps();
+        // While loop continues program until user enters "Exit"
+        while (true) {
+            System.out.print("\nEnter day of the week to display average temperature for that day or type 'Week' to \n" +
+                    "display average temperature for the week (or type 'Exit' to quit): ");
+            String dayInput = scnr.nextLine();
 
-        System.out.print("Enter day of the week to display average temperature for that day or type 'Week' to \n" +
-                "display average temperature for the week: ");
-        String dayInput = scnr.nextLine();
-        //Added weeklyTemps.getAllAvgTemps() to print average temps for each weekday
-        if (dayInput.equals("Week")) {
-            weeklyTemps.getAllAvgTemps();
-            System.out.printf("\nWeekly average temperature: %.2f°C\n", weeklyTemps.weeklyAverage());
+            if (dayInput.equalsIgnoreCase("Exit")) {
+                break;
+            }
 
-        } else {
-            double avgDayTemp = weeklyTemps.getAvgDayTemp(dayInput);
-            System.out.printf("\n%s's average temperature is: %.2f°C\n", dayInput, avgDayTemp);
+            // Added weeklyTemps.getAllAvgTemps() to print average temps for each weekday
+            if (dayInput.equalsIgnoreCase("Week")) {
+                weeklyTemps.getAllAvgTemps();
+                System.out.printf("\nWeekly average temperature: %.2f°C\n", weeklyTemps.weeklyAverage());
+            } else {
+                double avgDayTemp = weeklyTemps.getAvgDayTemp(dayInput);
+                System.out.printf("\n%s's average temperature is: %.2f°C\n", dayInput, avgDayTemp);
+            }
         }
-        //Release scanner
+
+        // Release scanner
         scnr.close();
     }
 }
